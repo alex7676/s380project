@@ -44,7 +44,18 @@ public class IndexController {
     public String manageThread(){
         return "manageThread";
     }
-    public static class createPollForm{
+
+     @GetMapping("/admin/createPoll")
+    public ModelAndView createPoll(){
+        return new ModelAndView("createPoll", "Poll", new IndexController.createPollForm());
+    }
+    @PostMapping("/admin/createPoll")
+    public String createPoll(createPollForm form,Principal principal) throws IOException{
+        PollService.createPoll(principal.getName(),form.getTopic(),form.getOption1(),form.getOption2(),form.getOption3(),form.getOption4());
+
+        return  "redirect:/index";
+    }
+        public static class createPollForm{
         private long userid;
         private String topic;
         private String option1;
@@ -101,21 +112,6 @@ public class IndexController {
         }
         
     }
-     @GetMapping("/admin/createPoll")
-    public String ShowCreatePoll(){
-        return  "createPoll";
-    }
-    @PostMapping("/admin/createPoll")
-    public String createPoll(createPollForm form,Principal principal) throws IOException{
-        PollService.createPoll(principal.getName(),form.getTopic(),form.getOption1(),form.getOption2(),form.getOption3(),form.getOption4());
-
-        return  "redirect:/index";
-    }
-    
-    
-   
-    
-    
     @GetMapping("/createThread")
     public String createThread(){
         return "createThread";

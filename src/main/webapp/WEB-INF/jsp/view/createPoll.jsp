@@ -8,8 +8,8 @@
   </head>
   <body>
     <h1>Creating Polls</h1>
-    <form:form modelAttribute="createPollForm"  enctype="multipart/form-data"  method="POST">
-      <form:label path="topic">Topic:</span><form:input type="text" path="topic" size="40"/><br>
+    <form:form method="POST"   enctype="multipart/form-data" modelAttribute="createPollForm" >
+      <form:label path="topic">Topic:</form:label><form:input type="text" path="topic" size="40"/></br>
       <p>Selection (Check boxes to enable):</p>
       <table>
         <tr>
@@ -25,9 +25,9 @@
           <td><input type="checkbox" id="box4" name="" value="" checked><form:input type="text" id="option4"  path="option4" size="40" /></td>
         </tr>
       </table>
-      <br><input type="submit" name="" value="Publish" onclick="validateOptions()">
+      </br><input type="submit" name="" value="Publish" onclick="validateOptions()"/>
     </form:form>
-    <br><a href="../admin"><button>Return</button></a>
+    </br><a href="../admin"><button>Return</button></a>
   </body>
   <script type="text/javascript">
     document.getElementById('box1').onchange = function() {
