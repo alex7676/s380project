@@ -7,6 +7,7 @@
     <body>
         <%@ include file="header.jsp" %>
         <div class="wrapper">
+            <a class="checkpollhistory" href="<c:url value="/pollHistory" />">>>Check Poll History here<<</a>
             <div class="poll">
                 <h1>A Poll</h1>
                 <ul>

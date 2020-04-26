@@ -68,6 +68,15 @@ body {
   padding-left: 2em;
 }
 
+.checkpollhistory {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 2.5em;
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+
 /* modal
 ------------------------------------------------------------------------------------------------ */
 

@@ -4,7 +4,7 @@
 <div id="header">
     <div class="wrapper">
         <div class="title">
-            <a href="index.html">Title</a>
+            <a href="<c:url value="/index" />">Title</a>
         </div>
         <div class="content">
             <c:if test="${pageContext.request.userPrincipal.name == null}">
