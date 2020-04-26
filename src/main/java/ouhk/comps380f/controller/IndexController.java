@@ -24,7 +24,6 @@ public class IndexController {
     
     @GetMapping("/admin/user")
     public String manageUser(ModelMap model){
-        model.addAttribute("userDatabase",userDatabase);
         return "manageUser";
     }
     
