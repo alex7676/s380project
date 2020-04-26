@@ -48,6 +48,23 @@ public class IndexController {
         return "createPoll";
     }
     
+    @GetMapping("/createThread")
+    public String createThread(){
+        return "createThread";
+    }
     
-
+    @GetMapping("/lectureList")
+    public String lectureList(){
+        return "lecture";
+    }
+    
+    @GetMapping("/labList")
+    public String labList(){
+        return "lab";
+    }
+    
+    @GetMapping("/otherList")
+    public String otherList(){
+        return "other";
+    }
 }
