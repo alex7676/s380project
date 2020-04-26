@@ -32,6 +32,15 @@ public class TicketUserController {
         private String username;
         private String password;
         private String role;
+        private String status;
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
 
         public String getUsername() {
             return username;

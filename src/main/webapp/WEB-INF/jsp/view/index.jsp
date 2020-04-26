@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-HK">
     <head>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/default.css"/>">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap-grid.min.css"/>">
-        <meta charset="UTF-8">
         <title>index</title>
         <meta name="description" content="index">
     </head>

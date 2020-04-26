@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/default.css"/>">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap-grid.min.css"/>">
+<meta charset="UTF-8">
 <div id="header">
     <div class="wrapper">
         <div class="title">
@@ -46,15 +49,13 @@
 </div>
 <!--signupform-->
 <div id="signupform" class="form modal">
-    <form class="modal-content animate" enctype="multipart/form-data"
-                   modelAttribute="ticketUser">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="Username" required>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Password" required>
-        <label for="re-password">Re-enter Password</label>
-        <input type="password" name="re-password" id="re-password" placeholder="Re-enter Password" required>
-        <input type="submit" value="Sign up" href="#">
-    </form>
+    <form:form class="modal-content animate"  enctype="multipart/form-data"
+               modelAttribute="ticketUser">
+        <form:label path="username">Username</form:label><br/>
+        <form:input type="text" path="username" /><br/><br/>
+        <form:label path="password">Password</form:label><br/>
+        <form:input type="text" path="password" /><br/><br/>
+        <input type="submit" value="Sign Up"/>
+    </form:form>    
 </div>
 <script src="<c:url value="/resources/js/login.js"/>"></script>
