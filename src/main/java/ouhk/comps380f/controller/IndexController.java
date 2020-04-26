@@ -19,29 +19,10 @@ public class IndexController {
     public String _index() {
         return "redirect:/index";
     }
-    
-    @GetMapping("/index")
-    public ModelAndView index() {
-        return new ModelAndView("index", "ticketUser", new TicketUserController.Form());
-    }
-    
-    @PostMapping("/index")
-    public String index(TicketUserController.Form form) throws IOException {
-        TicketUser user = new TicketUser(form.getUsername(),
-                form.getPassword(), "normal"
-        );
-        ticketUserRepo.save(user);
-        return "redirect:/index";
-    }
-    
+        
     @GetMapping("/admin")
     public String adminControl(){
         return "adminControl";
-    }
-    
-    @GetMapping("/admin/user")
-    public String manageUser(ModelMap model){
-        return "manageUser";
     }
     
     @GetMapping("/admin/thread")

@@ -22,8 +22,12 @@ public class Users implements Serializable {
     public Users(String username, String password, String role, String status) {
         this.username = username;
         this.password = password;
-        this.role = "User";
-        this.status = "Active";
+        this.role = role;
+        this.status = status;
+    }
+
+    public Users(String username, String password, String normal) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
