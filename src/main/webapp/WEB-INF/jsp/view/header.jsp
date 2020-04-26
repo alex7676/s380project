@@ -49,8 +49,7 @@
 </div>
 <!--signupform-->
 <div id="signupform" class="form modal">
-    <form:form class="modal-content animate"  enctype="multipart/form-data"
-               modelAttribute="ticketUser">
+    <form:form class="modal-content animate"  enctype="multipart/form-data"  modelAttribute="Users">
         <form:label path="username">Username</form:label><br/>
         <form:input type="text" path="username" /><br/><br/>
         <form:label path="password">Password</form:label><br/>

@@ -26,11 +26,11 @@ public class UserController {
     
     @GetMapping("/index")
     public ModelAndView index() {
-        return new ModelAndView("index", "Users", new TicketUserController.Form());
+        return new ModelAndView("index", "Users", new UserController.Form());
     }
     
     @PostMapping("/index")
-    public String index(TicketUserController.Form form) throws IOException {
+    public String index(UserController.Form form) throws IOException {
         Users user = new Users(form.getUsername(),form.getPassword(), "user", "Active");
         userRepo.save(user);
         return "redirect:/index";

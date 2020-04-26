@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import ouhk.comps380f.dao.UserRepository;
 import ouhk.comps380f.model.Users;
 
+@Service
 public class UserService implements UserDetailsService{
     @Resource
     UserRepository userRepo;
