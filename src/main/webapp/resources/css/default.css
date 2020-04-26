@@ -1,0 +1,350 @@
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  color: white;
+  min-width: 800px;
+  background-color: #1d1d1d;
+}
+
+.wrapper {
+  max-width: 1200px;
+  display: block;
+  text-align: left;
+  margin: 0 auto 0px;
+  word-wrap: break-word;
+}
+
+/* header
+------------------------------------------------------------------------------------------------ */
+
+#header {
+  background-color: #222;
+  margin: auto;
+  height: 3.3em;
+  line-height: 3.3em;
+  border-bottom: 2px solid #3b3a39;
+}
+
+#header .title {
+  font-size: 2em;
+  margin-left: 0.5em;
+  float: left;
+}
+
+#header a#login, #header a#register {
+  margin-right: 2em;
+  text-shadow: none;
+  line-height: 1.2em;
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 0 10px 0 0;
+  position: relative;
+  border-radius: 4px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  background: #444857;
+}
+
+#header .content a {
+  color: white;
+}
+
+#header .content {
+  float: right;
+  border-left: 2px solid #3b3a39;
+  padding-left: 2em;
+}
+
+/* modal
+------------------------------------------------------------------------------------------------ */
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #413e3c;
+  margin: 5% auto 15% auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  width: 480px;
+  padding: 2em 1.2em 1.2em 1em;
+  border-top: 5px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  color: white;
+}
+
+@media screen and (max-width: 565px) {
+  .modal-content {
+    width: 85%;
+  }
+}
+
+/* hyperlink
+------------------------------------------------------------------------------------------------ */
+
+a {
+  color: rgb(251, 195, 8);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(255, 228, 139);
+  cursor: pointer;
+}
+
+#error {
+  border: 1px dotted red;
+  color: red;
+  padding: 8px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 4px;
+}
+
+/* loginform/signupform
+------------------------------------------------------------------------------------------------ */
+
+.form {
+  font-size: 18px;
+  line-height: 1.4em;
+}
+
+.form input[type="text"], .form input[type="password"], .form input[type="submit"] {
+  box-sizing: border-box;
+  background-color: rgb(235, 255, 248);
+  border: 1px solid #dbdbdb;
+  padding: 10px;
+  font-size: 14px;
+  color: rgb(85, 85, 85);
+  display: block;
+  width: 100%;
+  margin: 15px 0px 15px 0px;
+  border-radius: 4px;
+  border-color: rgb(161, 161, 161);
+}
+
+.form input[type="submit"] {
+  outline: none;
+  color: white;
+  font-size: 16px;
+  background-color: rgb(41, 41, 41);
+  margin-top: 10px;
+  width: 100%;
+}
+
+.form input:focus, .form textarea:focus {
+  outline: none;
+  border-color: #2f8bcc;
+  box-shadow: 0px 0px 0px 1px #2f8bcc70;
+}
+
+.form input[type="submit"]:hover {
+  background-color: rgb(65, 65, 65);
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0)
+  }
+  to {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
+}
+
+/* Grid
+--------------------------------------------------------------------------------------------------------------- */
+
+.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter {
+  float: left;
+  margin: 0 0 0 3.06748466257669%;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.first {
+  margin-left: 0;
+  clear: left;
+}
+
+.one_quarter {
+  width: 22.69938650306748%;
+}
+
+.one_third {
+  width: 31.28834355828221%;
+}
+
+.one_half, .two_quarter {
+  width: 48.46625766871166%;
+}
+
+.two_third {
+  width: 65.6441717791411%;
+}
+
+.three_quarter {
+  width: 74.23312883435584%;
+}
+
+.clear {
+  clear: both;
+}
+
+.clear_left {
+  clear: both;
+}
+
+/* poll
+--------------------------------------------------------------------------------------------------------------- */
+
+.poll {
+  width: 60%;
+  margin: 2em auto 5em auto;
+  border: #bfccd6 3px solid;
+  padding: 1em 2em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #FFF;
+  color: #53626E;
+}
+
+.poll h1 {
+  margin: 20px 0 10px 0;
+  font-size: 1.3em;
+}
+
+.poll ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.poll ul, .poll li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.poll li {
+  padding: 10px 0 10px 0;
+}
+
+.poll input[type="radio"] {
+  margin: 0 10px 0 0;
+}
+
+.poll input[type="submit"] {
+  margin: 20px 0 0 0;
+  background-color: #53626E;
+  color: #FFF;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  font-size: 10pt;
+  border-radius: 4px;
+}
+
+/* pollhistory
+--------------------------------------------------------------------------------------------------------------- */
+
+.pollhistory_title h1 {
+  text-align: center;
+}
+
+.pollhistory_title h1:after {
+  background: #3b3a39;
+  content: '';
+  display: block;
+  width: 20%;
+  height: 2px;
+  margin: 8px auto;
+}
+
+.pollhistory h3 {
+  padding: 15px 30px;
+  margin: -30px -30px 20px;
+  background: #9900FF;
+  color: #FFF;
+  animation-duration: 1s;
+  animation-name: glowit;
+}
+
+.pollhistory ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.pollhistory li {
+  margin: 0 0 10px 45px;
+  padding: 8px 5px;
+  border-radius: 5px;
+}
+
+.pollhistory li:last-of-type {
+  margin-bottom: 0;
+}
+
+.pollhistory li span {
+  margin-left: -50px;
+  width: 55px;
+  display: inline-block;
+}
+
+.pollhistory {
+  box-sizing: border-box;
+  max-width: 600px;
+  border: 1px solid #CCC;
+  padding: 30px;
+  margin: 30px auto;
+  background-color: white;
+  color: rgb(48, 48, 48);
+}
+
+.poll-bordered li {
+  border: 1px solid #DDD;
+}
