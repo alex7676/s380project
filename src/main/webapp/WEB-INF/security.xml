@@ -40,7 +40,7 @@
     <b:bean id="ticketUserService" class="ouhk.comps380f.service.TicketUserService" />
     
     <authentication-manager>
-        <authentication-provider user-service-ref="ticketUserService" />
+        <authentication-provider user-service-ref="UserService" />
     </authentication-manager>
     
     <!-- Create default configuration for Hibernate -->

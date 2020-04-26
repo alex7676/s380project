@@ -16,7 +16,8 @@ public class Users implements Serializable {
     private String role;
     private String status;
 
-    
+    public Users(){
+    }
     
     public Users(String username, String password, String role, String status) {
         this.username = username;
