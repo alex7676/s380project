@@ -6,10 +6,12 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ouhk.comps380f.dao.UserRepository;
 import ouhk.comps380f.model.Users;
+import ouhk.comps380f.service.UserService;
 
 
 @Controller
@@ -22,6 +24,28 @@ public class UserController {
     public String users(ModelMap model){
         model.addAttribute("Users", userRepo.findAll());
         return "manageUser";
+    }
+
+    @GetMapping("/admin/ban/{username}/")
+    public String ban(@PathVariable("username") String username)throws IOException{
+        if(username!=null){
+           Users user =  userRepo.findById(username).orElse(null);
+           user.setStatus("banned");
+           userRepo.save(user);
+        return "redirect:/admin/user";
+        }
+        return "redirect:/admin/user";
+    }
+    
+    @GetMapping("/admin/unban/{username}/")
+    public String unban(@PathVariable("username") String username)throws IOException{
+        if(username!=null){
+           Users user =  userRepo.findById(username).orElse(null);
+           user.setStatus("normal");
+           userRepo.save(user);
+        return "redirect:/admin/user";
+        }
+        return "redirect:/admin/user";
     }
     
     @GetMapping("/index")

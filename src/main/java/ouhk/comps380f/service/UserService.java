@@ -11,11 +11,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ouhk.comps380f.dao.UserRepository;
 import ouhk.comps380f.model.Users;
 
 @Service
 public class UserService implements UserDetailsService{
+
+    public static void updateUserStatus(String username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Resource
     UserRepository userRepo;
 
@@ -29,4 +34,6 @@ public class UserService implements UserDetailsService{
         authorities.add(new SimpleGrantedAuthority(users.getRole()));
         return new User(users.getUsername(), users.getPassword(), authorities);
     }
+    
+
 }

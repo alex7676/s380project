@@ -23,10 +23,10 @@
         <td>${user.status}</td>
         <c:if  test="${!user.role.equals('ROLE_ADMIN')}"> 
             <c:if test="${user.status.equals('banned')}">
-            <td><button>Unban</button></td>
+                <td><a href="./unban/${user.username}/"><button>Unban</button></a></td>
             </c:if>
             <c:if test="${user.status.equals('normal')}">
-            <td><button>Ban</button></td>
+                <td><a href="./ban/${user.username}/"><button>Ban</button></a></td>
             </c:if>
         </c:if>
       </tr>
