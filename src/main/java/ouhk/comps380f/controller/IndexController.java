@@ -8,13 +8,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ouhk.comps380f.dao.TicketUserRepository;
-import ouhk.comps380f.model.TicketUser;
+import ouhk.comps380f.dao.UserRepository;
+import ouhk.comps380f.model.Users;
 
 @Controller
 public class IndexController {
     @Resource
-    TicketUserRepository ticketUserRepo;
+    UserRepository userRepo;
     @GetMapping
     public String _index() {
         return "redirect:/index";
@@ -25,6 +25,7 @@ public class IndexController {
         return "adminControl";
     }
     
+
     @GetMapping("/admin/thread")
     public String manageThread(){
         return "manageThread";

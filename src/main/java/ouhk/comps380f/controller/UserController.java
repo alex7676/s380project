@@ -31,7 +31,7 @@ public class UserController {
     
     @PostMapping("/index")
     public String index(UserController.Form form) throws IOException {
-        Users user = new Users(form.getUsername(),form.getPassword(), "user", "Active");
+        Users user = new Users(form.getUsername(),form.getPassword(), "ROLE_USER", "Active");
         userRepo.save(user);
         return "redirect:/index";
     }

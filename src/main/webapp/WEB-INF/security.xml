@@ -38,7 +38,6 @@
     <context:annotation-config />
     
     <b:bean id="UserService" class="ouhk.comps380f.service.UserService" />
-    
     <authentication-manager>
         <authentication-provider user-service-ref="UserService" />
     </authentication-manager>
