@@ -10,35 +10,27 @@
     <h2>Manage User</h2>
     <table>
       <tr>
-        <th>ID</th>
         <td>Username</td>
         <td>Role</td>
         <td>Status</td>
         <td>Action</td>
       </tr>
       <!-- For Each Users -->
-      <c:forEach items="${users}" var="user">
+      <c:forEach items="${Users}" var="user">
       <tr>
-        <th>${user.id}</th>
         <td>${user.username}</td>
         <td>${user.role}</td>
         <td>${user.status}</td>
+        <c:if  test="${!user.role.equals('ROLE_ADMIN')}"> 
+            <c:if test="${user.status.equals('banned')}">
+            <td><button>Unban</button></td>
+            </c:if>
+            <c:if test="${user.status.equals('normal')}">
+            <td><button>Ban</button></td>
+            </c:if>
+        </c:if>
       </tr>
       </c:forEach>
-      <tr>
-        <th>2</th>
-        <td>testing</td>
-        <td>User</td>
-        <td>Banned</td>
-        <td>  <a href="#"> <button type="button" name="button">Unban</button> </a> </td>
-      </tr>
-      <tr>
-        <th>3</th>
-        <td>hello</td>
-        <td>User</td>
-        <td>Active</td>
-        <td> <a href="#"> <button type="button" name="button">Ban</button> </a> </td>
-      </tr>
       <!-- End of Dummy Data -->
     </table>
     <a href="../admin"><button>Return</button></a>
