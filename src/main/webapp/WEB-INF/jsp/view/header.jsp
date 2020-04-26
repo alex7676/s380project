@@ -7,7 +7,7 @@
             <a href="<c:url value="/index" />">Title</a>
         </div>
         <div class="content">
-            <c:if test="${pageContext.request.userPrincipal.name == null}">
+            <security:authorize access="!hasAnyRole('ROLE_ADMIN,ROLE_USER')">
                 <a id="login" onclick="document.getElementById('loginform').style.display = 'block'"
                     style="width:auto;">Log
                     In
@@ -16,18 +16,18 @@
                     style="width:auto;">
                     Sign Up
                 </a>
-            </c:if>
-            <c:if test="${pageContext.request.userPrincipal.name != null}">
+            </security:authorize>
+            <security:authorize access="hasAnyRole('ROLE_ADMIN,ROLE_USER')">
                 Hi ${pageContext.request.userPrincipal.name} !
                 <c:url var="logoutUrl" value="/logout" />
                 <form action="${logoutUrl}" method="post">
                     <input type="submit" value="Log out" />
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                 </form>
-                <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                <security:authorize access="hasRole('ROLE_ADMIN')">
                     <a id="admin" href="admin"><button>Admin Page</button></a>
-                </c:if>
-            </c:if>
+                </security:authorize>
+            </security:authorize>
         </div>
     </div>
 </div>
@@ -42,7 +42,7 @@
         <input type="checkbox" id="remember-me" name="remember-me" />
         <label for="remember-me">Remember me</label>
         <input type="submit" value="Log In">
-        Don't have an account？<a id="gosignup">Sign up here！</a>OR<a id="back"> Back！</a>
+        Don't have an accountï¼<a id="gosignup">Sign up hereï¼</a>OR<a id="back"> Backï¼</a>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         <c:if test="${param.error != null}">
             <p id="error">Login failed.</p>
