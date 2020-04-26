@@ -15,5 +15,25 @@ public class IndexController {
     public String index() {
         return "index";
     }
+    
+    @GetMapping("/admin")
+    public String adminControl(){
+        return "adminControl";
+    }
+    
+    @GetMapping("/admin/user")
+    public String manageUser(){
+        return "manageUser";
+    }
+    
+    @GetMapping("/admin/thread")
+    public String manageThread(){
+        return "manageThread";
+    }
+    
+    @GetMapping("/admin/createPoll")
+    public String createPoll(){
+        return "createPoll";
+    }
 
 }

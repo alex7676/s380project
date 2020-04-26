@@ -19,6 +19,9 @@
                     <input type="submit" value="Log out" />
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form>
+                <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                    <a href="admin"><button>Admin Page</button></a>
+                </c:if>
             </c:if>
         </div>
     </div>
