@@ -19,6 +19,18 @@ public class IndexController {
     public String _index() {
         return "redirect:/index";
     }
+    
+    @GetMapping("/pollHistory")
+    public ModelAndView pollHistory() {
+        return new ModelAndView("pollHistory", "Users", new UserController.Form());
+    }
+    
+    @PostMapping("/pollHistory")
+    public String index(UserController.Form form) throws IOException {
+        Users user = new Users(form.getUsername(),form.getPassword(), "ROLE_USER", "normal");
+        userRepo.save(user);
+        return "redirect:/index";
+    }
         
     @GetMapping("/admin")
     public String adminControl(){
