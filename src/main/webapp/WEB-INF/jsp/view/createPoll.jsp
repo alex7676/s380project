@@ -28,6 +28,7 @@
       </table>
       <br><input type="submit" name="" value="Publish" onclick="validateOptions()">
     </form>
+    <br><a href="../admin"><button>Return</button></a>
   </body>
   <script type="text/javascript">
     document.getElementById('box1').onchange = function() {

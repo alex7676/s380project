@@ -11,10 +11,11 @@
     <p>Welcome! Admin</p>
     <table>
       <tr>
-        <th><a href="admin/user">User Management</a></th>
-        <th><a href="admin/thread">Thread Management</a></th>
-        <th><a href="admin/createPoll">Create Poll</a></th>
+        <th><a href="./admin/user">User Management</a></th>
+        <th><a href="./admin/thread">Thread Management</a></th>
+        <th><a href="./admin/createPoll">Create Poll</a></th>
       </tr>
     </table>
+    <a href="./"><button>Back</button></a>
   </body>
 </html>

@@ -1,6 +1,7 @@
 package ouhk.comps380f.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -22,7 +23,8 @@ public class IndexController {
     }
     
     @GetMapping("/admin/user")
-    public String manageUser(){
+    public String manageUser(ModelMap model){
+        model.addAttribute("userDatabase",userDatabase);
         return "manageUser";
     }
     

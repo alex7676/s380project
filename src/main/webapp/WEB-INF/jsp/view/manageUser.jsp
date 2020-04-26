@@ -17,12 +17,14 @@
         <td>Action</td>
       </tr>
       <!-- For Each Users -->
+      <c:forEach items="${users}" var="user">
       <tr>
-        <th>1</th>
-        <td>admin</td>
-        <td>Admininstrator</td>
-        <td>Active</td>
+        <th>${user.id}</th>
+        <td>${user.username}</td>
+        <td>${user.role}</td>
+        <td>${user.status}</td>
       </tr>
+      </c:forEach>
       <tr>
         <th>2</th>
         <td>testing</td>
@@ -39,5 +41,6 @@
       </tr>
       <!-- End of Dummy Data -->
     </table>
+    <a href="../admin"><button>Return</button></a>
   </body>
 </html>

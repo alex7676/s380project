@@ -31,5 +31,6 @@
         <td><a href="#"><button type="button" name="button">Edit</button></a> <a href="#"><button type="button" name="button">Delete</button></a></td>
       </tr>
     </table>
+    <br><a href="../admin"><button>Return</button></a>
   </body>
 </html>
