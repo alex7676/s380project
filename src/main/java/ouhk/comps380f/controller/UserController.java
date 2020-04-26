@@ -21,7 +21,7 @@ public class UserController {
     @GetMapping("/admin/user")
     public String users(ModelMap model){
         model.addAttribute("Users", userRepo.findAll());
-        return "listUser";
+        return "manageUser";
     }
     
     @GetMapping("/index")

@@ -11,10 +11,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 public class Users implements Serializable {
-    @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
+    @Id
     private String username;
     private String password;
     private String role;
