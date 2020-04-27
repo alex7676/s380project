@@ -1,8 +1,8 @@
 
 package ouhk.comps380f.service;
 
+import java.sql.Blob;
 import java.sql.Timestamp;
-import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,7 +15,7 @@ public class TopicsService{
    @Resource
    private TopicsRepository topicsRepo;
    
-   public void createTopics(String title, String content, String author, Timestamp time, List<Attachment> files, String filename, String categroies){
+   public void createTopics(String title, String content, String author, Timestamp time, Blob files, String filename, String categroies){
     Topics topic = new Topics();
     topic.setTitle(title);
     topic.setContent(content);

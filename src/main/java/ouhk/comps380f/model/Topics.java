@@ -1,6 +1,7 @@
 package ouhk.comps380f.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Topics implements Serializable{
     private String author;
     private Timestamp time;
     private String filename;
-    private List<Attachment> file = new ArrayList<>();
+    private Blob file;
     private String categories;
 
     public Topics(long Id, String title, String content, String author, Timestamp time, String filename, String categories) {
@@ -86,11 +87,11 @@ public class Topics implements Serializable{
         this.filename = filename;
     }
 
-    public List<Attachment> getFile() {
+    public Blob getFile() {
         return file;
     }
 
-    public void setFile(List<Attachment> file) {
+    public void setFile(Blob file) {
         this.file = file;
     }
 
