@@ -13,6 +13,9 @@
             </c:if>
         </c:forEach>
             <div class="wrapper">
+                <c:if test="${param.error != null}">
+            <p id="error">Error! <c:out value="${param.error}" /></p>
+        </c:if>
                 <a class="checkpollhistory" href="<c:url value="/pollHistory" />">>><c:if test="${voted == true}">You have voted!</c:if>Check Poll History here<<</a>
                 <c:if test="${voted == false}">
                 <div class="poll">

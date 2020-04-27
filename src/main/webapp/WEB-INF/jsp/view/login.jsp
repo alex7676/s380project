@@ -19,7 +19,7 @@
         Don't have an account?<a id="gosignup">Sign up here </a>OR<a id="back"> Back</a>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         <c:if test="${param.error != null}">
-            <p id="error">Login failed.</p>
+            <p id="error">Error!</p>
         </c:if>
     </form>
 </div>

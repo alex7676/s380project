@@ -63,6 +63,8 @@ public class UserController {
         if(temp == null) {
         Users user = new Users(form.getUsername(), form.getPassword(), "ROLE_USER", "normal");
         userRepo.save(user);
+        } else {
+            return "redirect:/index?error=user existed";
         }
         return "redirect:/index";
     }
