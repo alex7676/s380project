@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import ouhk.comps380f.dao.TopicsRepository;
 import ouhk.comps380f.dao.UserRepository;
 import ouhk.comps380f.model.Users;
 import ouhk.comps380f.service.PollService;
@@ -17,6 +18,9 @@ import ouhk.comps380f.service.PollService;
 public class IndexController {
     @Resource
     UserRepository userRepo;
+    @Resource
+    TopicsRepository topicsRepo;
+    
     @GetMapping
     public String _index() {
         return "redirect:/index";
@@ -42,13 +46,13 @@ public class IndexController {
 
     @GetMapping("/admin/topics")
     public String manageTopics(ModelMap model){
-        model.addAttribute("Topics");
+        model.addAttribute("Topics", topicsRepo.findAll());
         return "manageTopics";
     }
 
      @GetMapping("/admin/createPoll")
     public ModelAndView createPoll(){
-        return new ModelAndView("createPoll", "Poll", new IndexController.createPollForm());
+        return new ModelAndView("createPoll", "createPollForm", new IndexController.createPollForm());
     }
     @PostMapping("/admin/createPoll")
     public String createPoll(createPollForm form,Principal principal) throws IOException{
