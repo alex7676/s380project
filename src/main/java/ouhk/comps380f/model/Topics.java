@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="topics")
+@Table(name="topic")
 public class Topics implements Serializable{
     
     @Id

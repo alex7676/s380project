@@ -5,5 +5,5 @@ import ouhk.comps380f.model.Topics;
 
 
 public interface TopicsRepository extends JpaRepository<Topics, Long>{
-    
+
 }

@@ -8,23 +8,13 @@
   </head>
   <body>
     <h1>Editing Thread</h1>
-    <form class="" action="" method="post">
-      <span>Title:</span><input type="text" name="title" value="" size="40"><br>
+    <form:form method="POST" enctype="multipart/form-data" modelAttribute="topicForm">
+      <span>Title:</span><form:input path="title" type="text" name="title" value="${topic.title}" size="40"/><br>
       <p>Content:</p>
-      <textarea name="name" rows="8" cols="80"></textarea>
-      <br><input type="file" name="" value="" multiple="multiple">
-      <input type="submit" name="" value="Submit"> <input type="submit" name="" value="" onClick="deleteThread()">
-    </form>
+      <form:input  path="content"  name="name" value="${topic.content}" />
+      <br><input type="file" name="" value="">
+      <input type="submit" name="" value="Submit">
+    </form:form>
   </body>
-  <script type="text/javascript">
-    function deleteThread(){
-      var confirmation = confirm("Are you sure to delete THREAD?");
-      if(confirmation == true){
-        //INSERT DELETE THREAD HERE
-      }
-      else{
-        return false;
-      }
-    }
-  </script>
+
 </html>

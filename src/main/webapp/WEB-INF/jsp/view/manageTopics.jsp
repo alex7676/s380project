@@ -17,17 +17,18 @@
         <td>Files</td>
         <td>Action</td>
       </tr>
-        <c:forEach items="topics" var="topic"><tr>
-            <th> <a href="#">1</a></th>
+        <c:forEach items="${topics}" var="topic">
+        <tr>
+            <th> <a href="#">${topic.id}</a></th>
             <td>${topic.title}</td>
             <td>${topic.author}</td>
             <td>${topic.time}</td>
             <td>
               <ul>
-                <c:forEach items="${topic.file}" var="file"><li><a href="#DOWNLOAD">FILE 1</a></li></c:forEach>
+                <li><a href="#DOWNLOAD"></a></li>
               </ul>
             </td>
-            <td><a href="#"><button type="button" name="button">Edit</button></a> <a href="#"><button type="button" name="button">Delete</button></a></td>
+            <td><a href="../admin/editTopics/${topic.id}"><button type="button" name="button">Edit</button></a> <a href="#"><button type="button" name="button">Delete</button></a></td>
           </tr>
         </c:forEach>
     </table>
