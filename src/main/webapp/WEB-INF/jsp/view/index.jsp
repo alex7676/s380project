@@ -30,9 +30,9 @@
             </c:if>
             <div class="wrapper">
                 <div class="row">
-                    <div class="col-md-4"><a href="#"><img src="<c:url value="/resources/images/lecture.jpg"/>"></a></div>
-                    <div class="col-md-4"><a href="#"><img src="<c:url value="/resources/images/lab.jpg"/>"></a></div>
-                    <div class="col-md-4"><a href="#"><img src="<c:url value="/resources/images/other.jpg"/>"></a></div>
+                    <div class="col-md-4"><a href="<c:url value="/topics/lecture"/>"><img src="<c:url value="/resources/images/lecture.jpg"/>"></a></div>
+                    <div class="col-md-4"><a href="<c:url value="/topics/lab"/>"><img src="<c:url value="/resources/images/lab.jpg"/>"></a></div>
+                    <div class="col-md-4"><a href="<c:url value="/topics/other"/>"><img src="<c:url value="/resources/images/other.jpg"/>"></a></div>
                 </div>
             </div>
         </div>
