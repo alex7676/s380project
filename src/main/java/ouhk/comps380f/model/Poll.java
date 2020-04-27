@@ -1,6 +1,7 @@
 package ouhk.comps380f.model;
 
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "poll")
-public class Poll {
+public class Poll implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
