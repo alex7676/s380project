@@ -5,26 +5,29 @@
 	<title>Post Thread</title>
 </head>
 <body>
-<h1>Create New Topic</h2>
-<div id="postthread">
-        <form action="" method="POST">
-            <label for="title">Title:</label><br/>
-            <input type="text" id="title" name="title" /><br/><br/>
-            <label for="password">Content:</label><br/>
-            <textarea id="Content" name="Content" row="5" col="30"></textarea><br/><br/>
-            
-            <b>Categories:</b><br/>
-                <input type="radio" id="lecture" name="categories" value="lecture">
-                <label for="lecture">Lecture</label><br>
-                <input type="radio" id="lab" name="categories" value="lab">
-                <label for="lab">Lab</label><br>
-                <input type="radio" id="other" name="categories" value="other">
-                <label for="other">Other</label><br/><br/>
-            <b>Attachments</b><br/>
-                <input type="file" name="attachments" multiple="multiple"/><br/><br/>
-                <input type="submit" value="Submit"/>
+    <c:url var="logoutUrl" value="/logout"/>
+        <form action="${logoutUrl}" method="post">
+            <input type="submit" value="Log out" />
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
+        <h1>Create New Topic</h2>
+
+<div id="postthread">
+        <form:form method="POST" enctype="multipart/form-data" modelAttribute="topicForm">
+            <form:label path="title">Title:</form:label><br/>
+            <form:input type="text" path="title" /><br/><br/>
+            <form:label path="content">Content:</form:label><br/>
+            <form:textarea path="content" rows="5" cols="30" /><br/><br/>
+            <b>Categories:</b><br/>
+            <form:radiobutton path="categories" value="lecture" />lecture<br/>
+            <form:radiobutton path="categories" value="lab" />lab<br/>
+            <form:radiobutton path="categories" value="other" />other<br/>
+            <b>Attachments</b><br/>
+            <input type="file" name="attachments" multiple="multiple"/><br/><br/>
+            <input type="submit" value="Submit"/>
+        </form:form>
+        
 </div>
 </body>
 </html>

@@ -291,7 +291,6 @@ public class IndexController {
     @GetMapping("/otherList")
     public String otherList(){
         return "other";
-<<<<<<< HEAD
     }*/
 
 }
