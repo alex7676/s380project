@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ouhk.comps380f.dao.PollRepository;
 import ouhk.comps380f.dao.UserRepository;
+import ouhk.comps380f.dao.VoteRepository;
 import ouhk.comps380f.model.Poll;
 import ouhk.comps380f.model.Users;
 import ouhk.comps380f.service.PollService;
@@ -22,6 +23,9 @@ public class IndexController {
     private PollRepository pollRepo;
     @Resource
     UserRepository userRepo;
+    @Resource
+    VoteRepository voteRepo;
+    
     @GetMapping
     public String _index() {
         return "redirect:/index";
@@ -29,7 +33,12 @@ public class IndexController {
     
     @GetMapping("/pollHistory")
     public ModelAndView pollHistory() {
-        return new ModelAndView("pollHistory", "Users", new UserController.Form());
+        ModelAndView mav = new ModelAndView("pollHistory", "Users", new UserController.Form());
+        mav.addObject("Polls", pollRepo.findAll());
+        mav.addObject("Polls_size", pollRepo.findAll().size());
+        mav.addObject("Votes", voteRepo.findAll());
+        mav.addObject("Votes_size", voteRepo.findAll().size());
+        return mav;
     }
     
     @PostMapping("/pollHistory")
