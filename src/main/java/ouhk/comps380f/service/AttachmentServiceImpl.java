@@ -10,11 +10,11 @@ import ouhk.comps380f.model.Attachment;
 public class AttachmentServiceImpl implements AttachmentService {
 
     @Resource
-    private AttachmentRepository attachmentRepo;
+    AttachmentRepository attachmentRepo;
 
     @Override
     @Transactional
-    public Attachment getAttachment(long ticketId, String name) {
-        return attachmentRepo.findByTicketIdAndName(ticketId, name);
+    public Attachment getAttachment(long threadId, String author) {
+        return attachmentRepo.findByThreadIdAndName(threadId, author);
     }
 }

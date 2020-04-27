@@ -5,7 +5,7 @@
 	<title>Category Page</title>
 </head>
 <body>
-	<h1>other</h1>
+	<h1>Other</h1>
 	<h2>Total number of threads:n</h2><br/>
 	<table>
 		<tr>

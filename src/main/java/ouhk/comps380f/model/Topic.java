@@ -11,23 +11,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
-public class Ticket implements Serializable {
-
+@Table(name = "topic")
+public class Topic implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    @Column(name = "name")
-    private String customerName;
+    private String author;
     
-    private String subject;
-    private String body;
+    private String title;
     
-    @OneToMany(mappedBy = "ticket", fetch = FetchType.EAGER,
+    private String content;
+    
+    private String categories;
+    
+    @OneToMany(mappedBy = "topic", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
     @Fetch(FetchMode.SUBSELECT)
     private List<Attachment> attachments = new ArrayList<>();
@@ -40,28 +43,36 @@ public class Ticket implements Serializable {
         this.id = id;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public String getContent() {
+        return content;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
     }
 
     public List<Attachment> getAttachments() {
@@ -72,8 +83,5 @@ public class Ticket implements Serializable {
         this.attachments = attachments;
     }
     
-    public void deleteAttachment(Attachment attachment) {
-        attachment.setTicket(null);
-        this.attachments.remove(attachment);
-    }
+    
 }
