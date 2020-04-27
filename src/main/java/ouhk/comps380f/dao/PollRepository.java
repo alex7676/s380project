@@ -6,6 +6,6 @@ import ouhk.comps380f.model.Poll;
 
 
 public interface PollRepository extends JpaRepository<Poll, String>{
-    
+    Poll findFirstByOrderByIdDesc();
     
 }
