@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ouhk.comps380f.dao.PollRepository;
@@ -18,6 +19,7 @@ import ouhk.comps380f.dao.UserRepository;
 import ouhk.comps380f.dao.VoteRepository;
 import ouhk.comps380f.model.Poll;
 import ouhk.comps380f.model.Topics;
+import ouhk.comps380f.model.Vote;
 import ouhk.comps380f.model.Users;
 import ouhk.comps380f.service.PollService;
 
@@ -36,6 +38,7 @@ public class IndexController {
     public String _index() {
         return "redirect:/index";
     }
+
     
     @GetMapping("/pollHistory")
     public ModelAndView pollHistory() {
@@ -48,11 +51,63 @@ public class IndexController {
     }
     
     @PostMapping("/pollHistory")
-    public String index(UserController.Form form) throws IOException {
+    public String pollHistory(UserController.Form form) throws IOException {
         Users user = new Users(form.getUsername(),form.getPassword(), "ROLE_USER", "normal");
         userRepo.save(user);
         return "redirect:/index";
     }
+    
+    @GetMapping("/index")
+    public ModelAndView index(ModelMap model) {
+        ModelAndView mav = new ModelAndView("index", "voteForm", new voteForm());
+        mav.addObject("poll", pollRepo.findFirstByOrderByIdDesc());
+        mav.addObject("votes", voteRepo.findAll());
+        return mav;
+    }
+    
+    @PostMapping("/index")
+    public String vote(voteForm voteForm,Principal principal) throws IOException{
+        Vote newVote = new Vote();
+        newVote.setPollid(voteForm.pollid);
+        newVote.setUsername(principal.getName());
+        newVote.setChoice(Integer.parseInt(voteForm.choice));
+        voteRepo.save(newVote);
+        return  "redirect:/index";
+    }
+    
+        public static class voteForm{
+        private long pollid ;
+        private String username;
+        private String choice;
+
+
+        public long getPollid() {
+            return pollid;
+        }
+
+        public void setPollid(long pollid) {
+            this.pollid = pollid;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public String getChoice() {
+            return choice;
+        }
+
+        public void setChoice(String choice) {
+            this.choice = choice;
+        }
+
+        
+    }
+
         
     @GetMapping("/admin")
     public String adminControl(){
@@ -237,4 +292,6 @@ public class IndexController {
     public String otherList(){
         return "other";
     }
+    
+    
 }

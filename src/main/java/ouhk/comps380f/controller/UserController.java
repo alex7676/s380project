@@ -1,4 +1,3 @@
-
 package ouhk.comps380f.controller;
 
 import java.io.IOException;
@@ -15,68 +14,74 @@ import ouhk.comps380f.model.Poll;
 import ouhk.comps380f.model.Users;
 import ouhk.comps380f.service.UserService;
 
-
 @Controller
 public class UserController {
-    
+
     @Resource
     UserRepository userRepo;
-    
+
     @Resource
     PollRepository pollRepo;
-    
+
     @GetMapping("/admin/user")
-    public String users(ModelMap model){
+    public String users(ModelMap model) {
         model.addAttribute("Users", userRepo.findAll());
         return "manageUser";
     }
 
     @GetMapping("/admin/ban/{username}/")
-    public String ban(@PathVariable("username") String username)throws IOException{
-        if(username!=null){
-           Users user =  userRepo.findById(username).orElse(null);
-           user.setStatus("banned");
-           userRepo.save(user);
-        return "redirect:/admin/user";
+    public String ban(@PathVariable("username") String username) throws IOException {
+        if (username != null) {
+            Users user = userRepo.findById(username).orElse(null);
+            user.setStatus("banned");
+            userRepo.save(user);
+            return "redirect:/admin/user";
         }
         return "redirect:/admin/user";
     }
-    
+
     @GetMapping("/admin/unban/{username}/")
-    public String unban(@PathVariable("username") String username)throws IOException{
-        if(username!=null){
-           Users user =  userRepo.findById(username).orElse(null);
-           user.setStatus("normal");
-           userRepo.save(user);
-        return "redirect:/admin/user";
+    public String unban(@PathVariable("username") String username) throws IOException {
+        if (username != null) {
+            Users user = userRepo.findById(username).orElse(null);
+            user.setStatus("normal");
+            userRepo.save(user);
+            return "redirect:/admin/user";
         }
         return "redirect:/admin/user";
     }
-    
-    @GetMapping("/index")
-    public ModelAndView index(ModelMap model) {
-        ModelAndView mav = new ModelAndView("index", "Users", new UserController.Form());
-        //long currentPollId = pollRepo.findAll().size();
-        //Poll aPoll = pollRepo.findById(currentPollId).orElse(null);
-        Poll aPoll = pollRepo.findFirstByOrderByIdDesc();
-        //mav.addObject("currentPollId", currentPollId);
-        mav.addObject("poll", aPoll);
+
+    @GetMapping("/signup")
+    public ModelAndView signup() {
+        ModelAndView mav = new ModelAndView("signup", "Users", new UserController.Form());
         return mav;
     }
-    
-    @PostMapping("/index")
-    public String index(UserController.Form form) throws IOException {
-        Users user = new Users(form.getUsername(),form.getPassword(), "ROLE_USER", "normal");
+
+    @PostMapping("/signup")
+    public String signup(UserController.Form form) throws IOException {
+        Users user = new Users(form.getUsername(), form.getPassword(), "ROLE_USER", "normal");
         userRepo.save(user);
         return "redirect:/index";
     }
-    
-    public static class Form{
+
+    @GetMapping("/login")
+    public ModelAndView login() {
+        ModelAndView mav = new ModelAndView("login", "Users", new UserController.Form());
+        return mav;
+    }
+
+    @PostMapping("/login")
+    public String login(UserController.Form form) throws IOException {
+        return "redirect:/index";
+    }
+
+    public static class Form {
+
         private String username;
         private String password;
         private String role;
         private String status;
-        
+
         public String getUsername() {
             return username;
         }
