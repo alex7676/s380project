@@ -13,7 +13,7 @@
             </c:if>
         </c:forEach>
             <div class="wrapper">
-                <a class="checkpollhistory" href="<c:url value="/pollHistory" />">>>Check Poll History here<<</a>
+                <a class="checkpollhistory" href="<c:url value="/pollHistory" />">>><c:if test="${voted == true}">You have voted!</c:if>Check Poll History here<<</a>
                 <c:if test="${voted == false}">
                 <div class="poll">
                     <h1><c:out value="${poll.topic}"/></h1>
@@ -42,6 +42,9 @@
         </c:if>
     </c:if>
     <div class="wrapper">
+        <c:if test="${poll.id == null}">
+        <p style="text-align:center;">No poll here</p>
+        </c:if>
         <div class="row">
             <div class="col-md-4"><a href="#"><img src="<c:url value="/resources/images/lecture.jpg"/>"></a></div>
             <div class="col-md-4"><a href="#"><img src="<c:url value="/resources/images/lab.jpg"/>"></a></div>
