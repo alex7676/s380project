@@ -59,8 +59,13 @@ public class UserController {
 
     @PostMapping("/signup")
     public String signup(UserController.Form form) throws IOException {
+        Users temp = userRepo.findById(form.getUsername()).orElse(null);
+        if(temp == null) {
         Users user = new Users(form.getUsername(), form.getPassword(), "ROLE_USER", "normal");
         userRepo.save(user);
+        } else {
+            return "redirect:/index?error=user existed";
+        }
         return "redirect:/index";
     }
 
@@ -70,10 +75,6 @@ public class UserController {
         return mav;
     }
 
-    @PostMapping("/login")
-    public String login(UserController.Form form) throws IOException {
-        return "redirect:/index";
-    }
 
     public static class Form {
 
