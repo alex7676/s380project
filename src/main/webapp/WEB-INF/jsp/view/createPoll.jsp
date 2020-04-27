@@ -8,8 +8,8 @@
   </head>
   <body>
     <h1>Creating Polls</h1>
-    <form:form method="POST"   enctype="multipart/form-data" modelAttribute="createPollForm" >
-      <form:label path="topic">Topic:</form:label><form:input type="text" path="topic" size="40"/></br>
+    <form:form method="POST" enctype="multipart/form-data" modelAttribute="createPollForm" >
+      <span>Topic:</span><form:input type="text" path="topic" size="40"/></br>
       <p>Selection (Check boxes to enable):</p>
       <table>
         <tr>
@@ -55,7 +55,7 @@ function validateOptions() {
       alert('You have to provide a title');
       return false;
     }
-    else if (createPoll.selection1.value == "" && createPoll.selection2.value == "" && createPoll.selection3.value == "" && createPoll.selection4.value == "") {
+    else if (createPoll.option1.value == "" && createPoll.option2.value == "" && createPoll.option3.value == "" && createPoll.option4.value == "") {
         alert('You have to provide at least one option');
         return false;
     }
