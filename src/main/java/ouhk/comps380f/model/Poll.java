@@ -1,7 +1,7 @@
-
 package ouhk.comps380f.model;
 
-import java.security.Timestamp;
+
+import java.sql.Timestamp;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Entity;
@@ -13,10 +13,10 @@ import javax.persistence.Table;
 public class Poll {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String username;
-    private Timestamp timestamp;
+    private Timestamp time;
     private String topic;
     private String option1;
     private String option2;
@@ -53,12 +53,12 @@ public class Poll {
         this.username = username;
     }
 
-    public Timestamp getTimestamp() {
-        return timestamp;
+    public Timestamp getTime() {
+        return time;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
     public String getTopic() {

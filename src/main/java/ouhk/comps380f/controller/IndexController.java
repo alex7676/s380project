@@ -2,6 +2,7 @@ package ouhk.comps380f.controller;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.sql.Timestamp;
 import javax.annotation.Resource;
 import javax.swing.JOptionPane;
 import org.springframework.stereotype.Controller;
@@ -9,18 +10,18 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ouhk.comps380f.dao.TopicsRepository;
+import ouhk.comps380f.dao.PollRepository;
 import ouhk.comps380f.dao.UserRepository;
+import ouhk.comps380f.model.Poll;
 import ouhk.comps380f.model.Users;
 import ouhk.comps380f.service.PollService;
 
 @Controller
 public class IndexController {
     @Resource
-    UserRepository userRepo;
+    private PollRepository pollRepo;
     @Resource
-    TopicsRepository topicsRepo;
-    
+    UserRepository userRepo;
     @GetMapping
     public String _index() {
         return "redirect:/index";
@@ -44,38 +45,39 @@ public class IndexController {
     }
     
 
-    @GetMapping("/admin/topics")
-    public String manageTopics(ModelMap model){
-        model.addAttribute("Topics", topicsRepo.findAll());
-        return "manageTopics";
+    @GetMapping("/admin/thread")
+    public String manageThread(){
+        return "manageThread";
     }
-
+    
      @GetMapping("/admin/createPoll")
     public ModelAndView createPoll(){
-        return new ModelAndView("createPoll", "createPollForm", new IndexController.createPollForm());
+        return new ModelAndView("createPoll", "createPollForm", new createPollForm());
     }
     @PostMapping("/admin/createPoll")
     public String createPoll(createPollForm form,Principal principal) throws IOException{
-        PollService.createPoll(principal.getName(),form.getTopic(),form.getOption1(),form.getOption2(),form.getOption3(),form.getOption4());
-
+        Poll newPoll = new Poll();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        newPoll.setUsername(principal.getName());
+        newPoll.setTime(timestamp);
+        newPoll.setTopic(form.getTopic());
+        newPoll.setOption1(form.getOption1());
+        newPoll.setOption2(form.getOption2());
+        newPoll.setOption3(form.getOption3());
+        newPoll.setOption4(form.getOption4());
+        pollRepo.save(newPoll);
         return  "redirect:/index";
     }
         public static class createPollForm{
-        private long userid;
         private String topic;
         private String option1;
         private String option2;
         private String option3;
         private String option4;
 
-        public long getUserid() {
-            return userid;
+        public createPollForm() {
         }
-
-        public void setUserid(long userid) {
-            this.userid = userid;
-        }
-
+        
         public String getTopic() {
             return topic;
         }
