@@ -26,8 +26,7 @@ public class Topics implements Serializable{
     private Blob file;
     private String categories;
 
-    public Topics(long Id, String title, String content, String author, Timestamp time, String filename, String categories) {
-        this.Id = Id;
+    public Topics(String title, String content, String author, Timestamp time, String filename, String categories) {
         this.title = title;
         this.content = content;
         this.author = author;
