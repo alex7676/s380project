@@ -45,10 +45,9 @@ public class IndexController {
     }
     
 
-    @GetMapping("/admin/topics")
-    public String manageTopics(ModelMap model){
-        model.addAttribute("Topics");
-        return "manageTopics";
+    @GetMapping("/admin/thread")
+    public String manageThread(){
+        return "manageThread";
     }
     
      @GetMapping("/admin/createPoll")
