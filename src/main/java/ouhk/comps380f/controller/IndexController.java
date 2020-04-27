@@ -209,7 +209,7 @@ public class IndexController {
         }
         
     }
-    @GetMapping("/createThread")
+    /*@GetMapping("/createThread")
     public String createThread(){
         return "createThread";
     }
@@ -227,5 +227,7 @@ public class IndexController {
     @GetMapping("/otherList")
     public String otherList(){
         return "other";
-    }
+    }*/
+
 }
+
