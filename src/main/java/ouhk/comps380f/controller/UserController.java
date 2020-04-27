@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ouhk.comps380f.dao.UserRepository;
+import ouhk.comps380f.dao.PollRepository;
+import ouhk.comps380f.model.Poll;
 import ouhk.comps380f.model.Users;
 import ouhk.comps380f.service.UserService;
 
@@ -19,6 +21,9 @@ public class UserController {
     
     @Resource
     UserRepository userRepo;
+    
+    @Resource
+    PollRepository pollRepo;
     
     @GetMapping("/admin/user")
     public String users(ModelMap model){
@@ -49,8 +54,14 @@ public class UserController {
     }
     
     @GetMapping("/index")
-    public ModelAndView index() {
-        return new ModelAndView("index", "Users", new UserController.Form());
+    public ModelAndView index(ModelMap model) {
+        ModelAndView mav = new ModelAndView("index", "Users", new UserController.Form());
+        //long currentPollId = pollRepo.findAll().size();
+        //Poll aPoll = pollRepo.findById(currentPollId).orElse(null);
+        Poll aPoll = pollRepo.findFirstByOrderByIdDesc();
+        //mav.addObject("currentPollId", currentPollId);
+        mav.addObject("poll", aPoll);
+        return mav;
     }
     
     @PostMapping("/index")
